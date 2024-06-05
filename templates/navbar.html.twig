@@ -1,0 +1,25 @@
+	<nav class =" bg-black p-5" >
+	 <div>
+			<ul class="flex">
+				<li >
+					<a class="text-gray-500  hover:text-red-500 transition-colors duration-300 text-2xl pt-5 m-5 {{ app.current_route == 'app_index' ? 'active' : '' }}" href="{{ path('app_index') }}">Accueil</a>
+				</li>
+				<li >
+					<a  class="text-gray-500 hover:text-red-500 transition-colors duration-300 text-2xl pt-5 m-5" href="{{ path('app_recipes') }} "> Recettes</a>
+				</li>
+				<li >
+					<a  class="text-gray-500 hover:text-red-500 transition-colors duration-300 text-2xl pt-5 m-5" href="{{ path('app_recipe') }} "> Add recipe</a>
+				</li>
+				<li >
+					<a  class="text-gray-500  hover:text-red-500 transition-colors duration-300 text-2xl pt-5 m-5" href="{{ path('app_about') }} ">About</a>
+				</li>
+				
+						
+			</ul>
+	 </div>
+	</nav>
+			
+			
+
+
+			

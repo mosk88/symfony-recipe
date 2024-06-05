@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recipes{% endblock %}
+
+
+{% block body %}
+{% for recipe in recipes  %}
+{% block card %} {{ include ('card.html.twig') }} {% endblock %}
+{% endfor %}
+{% endblock %}
