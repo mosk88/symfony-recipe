@@ -4,8 +4,10 @@ namespace App\Entity;
 
 use App\Repository\NewsletterEmailRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 #[ORM\Entity(repositoryClass: NewsletterEmailRepository::class)]
+#[UniqueEntity("email",message:"l'email existe deja")]
 class NewsletterEmail
 {
     #[ORM\Id]
@@ -13,7 +15,7 @@ class NewsletterEmail
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, unique: true)]
     private ?string $email = null;
 
     public function getId(): ?int

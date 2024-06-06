@@ -22,12 +22,13 @@ class NewsletterController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $em->persist($newsletter);
             $em->flush();
-            return $this->redirectToRoute('newsletter_thanks');
+            $this->addFlash('message','subscribe succesful');
+            return $this->redirectToRoute('app_newsletter');
         }
-        return $this->render('newsletter/index.html.twig', [
-            'controller_name' => 'NewsletterController'
+        return $this->render('newsletter/subscribe.html.twig', [
+            'newsletterform' => $form
         ]);
     }
-    // #[Route('/newsletter/thanks', name:'newsletter_thanks')]
+    
 
 }

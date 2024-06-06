@@ -22,12 +22,5 @@ class IndexController extends AbstractController
             'controller_name' => 'IndexController',
         ]);
     }
-    #[Route('/recipes', name:'app_recipes')]
-    public function Recipes(): Response
-    {
-        return $this->render('index/recipes.html.twig', [
-            'controller_name' => 'IndexController',
-        ]);
-  
-}
+
 }

@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Attribute\Route;
 class RecipeController extends AbstractController
 {
     #[Route('/recipe', name: 'app_recipe')]
-    public function recipe(Request $request,EntityManagerInterface $em): Response
+    public function recipe(Request $request, EntityManagerInterface $em): Response
     {
         $recipe = new Recipe();
         $form = $this->createForm(RecipeType::class, $recipe);
@@ -21,11 +21,14 @@ class RecipeController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $em->persist($recipe);
             $em->flush();
-            $this->addFlash('success', 'Recipe added with success');
-            // return $this->redirectToRoute('');
+            $recipe->setCreatAt(new \DateTimeImmutable(''));
+             $this->addFlash('message', 'Recipe added with success');
+            return $this->redirectToRoute('app_recipe');
+           
         }
         return $this->render('recipe/new.html.twig', [
             'newrecipeform' => $form,
         ]);
     }
+
 }

@@ -1,13 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Add Recipe{% endblock %}
+{% block title %}Subscribe{% endblock %}
 
 {% block body %}
-<h1 class= " text-4xl text-center">Add New Recipe</h1>
+<h1 class= " text-4xl text-center">Inscripetion à la newslatter</h1>
 
 
-<div class= "w-full  px-4 sm:w-1/2  mx-auto">{{ form (newrecipeform)}}</div>
-
+<div class= "w-full  px-4 sm:w-1/2  mx-auto">{{ form (newsletterform)}}</div>
 {% for message in app.flashes('message') %}
      <div class="bg-teal-100  border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md" role="alert">
   <div class="flex">
@@ -17,7 +16,6 @@
     </div>
   </div>
 </div> 
-    
 {% endfor %}
+
 {% endblock %}
-  
