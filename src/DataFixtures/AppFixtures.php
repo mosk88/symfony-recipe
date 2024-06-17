@@ -15,10 +15,10 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class AppFixtures extends Fixture
 {
-    public function __construct(private UserPasswordHasherInterface $passhasher)
-    { 
+    // public function __construct(private UserPasswordHasherInterface $passhasher)
+    // { 
 
-    }
+    // }
     private const CATEGORIES  = ['Recette Marocainne','Recette Française ','Recette Japonaise','Recette Libyanne','Recette Berbare'];
     private const ARTICLES_NB = 10;
     public function load(ObjectManager $manager): void
@@ -47,14 +47,14 @@ class AppFixtures extends Fixture
         $admin = new User();
         $admin
             ->setEmail('admin@mos.com')
-            ->setPassword($this->passhasher->hashPassword($admin, 'admin'))
+            ->setPassword('admin')
             ->setRoles(['ROLE_ADMIN']);
             $manager->persist($admin);
 
         $user = new User();
         $user
         ->setEmail('user@mos.com')    
-        ->setPassword($this->passhasher->hashPassword($user,'user'))
+        ->setPassword('user')
         ->setRoles(['ROLE_USER']);
         $manager->persist($user);
 
