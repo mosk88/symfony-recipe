@@ -6,6 +6,7 @@ use App\Repository\CategoryRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Attribute\Groups;
 
 #[ORM\Entity(repositoryClass: CategoryRepository::class)]
 class Category
@@ -16,6 +17,7 @@ class Category
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['recipes:read', 'recipe:read:item'])]
     private ?string $name = null;
 
     /**
@@ -27,6 +29,10 @@ class Category
     public function __construct()
     {
         $this->recipe = new ArrayCollection();
+    }
+    public function __toString(): string
+    {
+        return $this->name;
     }
 
     public function getId(): ?int

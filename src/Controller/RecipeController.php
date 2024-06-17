@@ -19,9 +19,10 @@ class RecipeController extends AbstractController
         $form = $this->createForm(RecipeType::class, $recipe);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+             $recipe->setCreatAt(new \DateTimeImmutable());
             $em->persist($recipe);
             $em->flush();
-            $recipe->setCreatAt(new \DateTimeImmutable(''));
+           
              $this->addFlash('message', 'Recipe added with success');
             return $this->redirectToRoute('app_recipe');
            

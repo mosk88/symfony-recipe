@@ -5,6 +5,9 @@ namespace App\Entity;
 use App\Repository\RecipeRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Attribute\Context;
+use Symfony\Component\Serializer\Attribute\Groups;
+use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 
 #[ORM\Entity(repositoryClass: RecipeRepository::class)]
 class Recipe
@@ -12,21 +15,28 @@ class Recipe
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['recipes:read', 'recipe:read:item'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['recipes:read','recipe:read:item'])]
     private ?string $title = null;
 
     #[ORM\Column(type: Types::TEXT)]
+    #[Groups(['recipes:read', 'recipe:read:item'])]
     private ?string $content = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    #[Groups(['recipes:read','recipe:read:item'])]
+    #[Context([DateTimeNormalizer::FORMAT_KEY => 'd/m/Y'])]
     private ?\DateTimeInterface $creatAt = null;
 
     #[ORM\Column]
+    #[Groups(['recipes:read','recipe:read:item'])]
     private ?bool $visible = null;
 
     #[ORM\ManyToOne(inversedBy: 'article')]
+    #[Groups(['recipes:read','recipe:read:item'])]
     private ?Category $category = null;
 
     public function getId(): ?int
@@ -58,12 +68,12 @@ class Recipe
         return $this;
     }
 
-    public function getCreatAt(): ?\DateTimeImmutable
+    public function getCreatAt(): ?\DateTimeInterface
     {
         return $this->creatAt;
     }
 
-    public function setCreatAt(\DateTimeImmutable $creatAt): static
+    public function setCreatAt(\DateTimeInterface $creatAt): static
     {
         $this->creatAt = $creatAt;
 
