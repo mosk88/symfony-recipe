@@ -39,6 +39,9 @@ class Recipe
     #[Groups(['recipes:read','recipe:read:item'])]
     private ?Category $category = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $picturefilename = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -100,6 +103,18 @@ class Recipe
     public function setCategory(?Category $category): static
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    public function getPicturefilename(): ?string
+    {
+        return $this->picturefilename;
+    }
+
+    public function setPicturefilename(string $picturefilename): static
+    {
+        $this->picturefilename = $picturefilename;
 
         return $this;
     }

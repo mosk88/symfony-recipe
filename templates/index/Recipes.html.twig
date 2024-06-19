@@ -8,12 +8,39 @@
 
 <h1 class= "text-center text-5xl p-5" > Recipes </h1>
 
-{{ include ('card.html.twig') }}
+
+<ul class="text-center px-16">
 
 
+        <div class="container  p-4 mp-4">  
+    
+           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+   
+        {% for recipe in recipes %}
+            
+            <div class="bg-white  shadow-md rounded-lg overflow-hidden">
+                <div class="p-5">
+                <h3 class="text-3xl bg-gray-500 text-black p-5">{{ recipe.title }}</h3>
+               
+                 {% if recipe.picturefilename is not null %}
+                              <p>
+                             <img
+                             src="{{ '/uploads/recipe/' ~ recipe.picturefilename }}"
+                                  alt="{{ recipe.title  }}"
+                              class="  h-70 w-96 p-4 mx-auto "
+                                  />
+                           </p>
+                 {% endif %}
+                <p class="text-3xl text-black p-5" >{{ recipe.content }}</p>
+               </div>
+            </div>
+        {% else %}
+            <li>No Recipe found for this category.</li>
+        {% endfor %}
 
-
-
+    </div>
+    </div>
+    </ul>
 
 
 

@@ -17,7 +17,10 @@ framework:
     #fragments: true
     php_errors:
         log: true
-
+    http_client:
+        scoped_clients:
+            spam.checker:
+               base_uri: '%env(SPAM_CHECKER_BASE_URI)%'
 when@test:
     framework:
         test: true
