@@ -29,7 +29,7 @@ class RecipeCrudController extends AbstractCrudController
         return [
             IdField::new('id')->hideOnForm(),
             TextField::new('title'),
-            TextEditorField::new('content'),
+            TextField::new('content'),
             DateTimeField::new('creatAt'),
             ImageField::new('picturefilename')
             ->setUploadDir('public/uploads/recipe')

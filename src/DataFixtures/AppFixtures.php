@@ -15,10 +15,10 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class AppFixtures extends Fixture
 {
-    // public function __construct(private UserPasswordHasherInterface $passhasher)
-    // { 
+    public function __construct(private UserPasswordHasherInterface $passhasher)
+    { 
 
-    // }
+    }
     private const CATEGORIES  = ['Recette Marocainne','Recette Française ','Recette Japonaise','Recette Libyanne','Recette Berbare'];
     private const ARTICLES_NB = 10;
     public function load(ObjectManager $manager): void
@@ -39,6 +39,7 @@ class AppFixtures extends Fixture
              ->setTitle($faker->words(nb: $faker->numberBetween(1,3), asText: true))
              ->setContent($faker->realTextBetween(300, 500))
              ->setCreatAt(DateTimeImmutable::createFromMutable(object: $faker->dateTimeBetween(startDate:'-2 years')))
+             ->setPicturefilename('IMG-20201211-WA0024-6672c25506229.jpg')
              ->setVisible($faker->boolean())
              ->setCategory($faker->randomElement($list));
              $manager->persist($recipe);

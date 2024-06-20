@@ -21,13 +21,15 @@
                               <p>
                              <img
                              src="{{ '/uploads/recipe/' ~ recipe.picturefilename }}"
-                                  {# alt="{{  }}" #}
+                                  alt="{{ recipe.title }}"
                               class=" h-70 w-96 p-4 mx-auto"
                                   />
                            </p>
                  {% endif %}
                 <p class="text-3xl text-black p-5" >{{ recipe.content }}</p>
+                <time class="text-black" >Created At: {{ recipe.creatAt|date("m/d/Y") }}</time>
                </div>
+               
             </div>
         {% else %}
             <li>No Recipe found for this category.</li>

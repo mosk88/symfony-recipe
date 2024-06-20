@@ -9,9 +9,7 @@
 <h1 class= "text-center text-5xl p-5" > Recipes </h1>
 
 
-<ul class="text-center px-16">
-
-
+<ul class="text-center px-16 ">
         <div class="container  p-4 mp-4">  
     
            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -32,6 +30,7 @@
                            </p>
                  {% endif %}
                 <p class="text-3xl text-black p-5" >{{ recipe.content }}</p>
+               <time class="text-black" >Created At: {{ recipe.creatAt|date("m/d/Y") }}</time>
                </div>
             </div>
         {% else %}

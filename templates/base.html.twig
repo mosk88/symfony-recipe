@@ -12,15 +12,19 @@
         {% endblock %}
     </head>
     <body>
-    
-    {{ include ('navbar.html.twig')}}
-    
+        <div id="wrapper" class="flex flex-col min-h-screen">
+            <header>
+                {{ include ('navbar.html.twig')}}
+            </header>
 
-        {% block body %}
-        {% endblock %}
+            <main class="grow">
+                {% block body %}
+                {% endblock %}
+            </main>
 
-      
-        {{ include ('footer.html.twig')}}
-        
+            {% block footer %}
+                {{ include ('footer.html.twig')}}
+            {% endblock %}        
+        </div>
     </body>
 </html>
