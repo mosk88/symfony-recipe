@@ -4,10 +4,21 @@
 
 {% block body %}
  <h1 class="text-8xl text-center p-5 text-blue-300 ">list Category</h1>
-<ul class="text-center  p-10">
+<ul class="text-center  p-10 flex ">
 {% for category in categories  %}
 
-            <li class= " p-5" ><a class="text-3xl p-5 hover:text-blue-300 transition-colors duration-300" href="{{ path ('category_item', {name: category.name}) }}">{{ category.name }}</a> : {{category.recipe|length}} Recipes</li>
+
+            <li class= " p-5" >
+             {% if category.flagfilename is not null %}
+                              <p>
+                             <img
+                             src="{{ '/uploads/category/' ~ category.flagfilename }}"
+                                  alt="{{ category.name }}"
+                              class=" h-70 w-96 p-4 mx-auto"
+                                  />
+                           </p>
+                 {% endif %}
+            <a class="text-3xl p-5 hover:text-blue-300 transition-colors duration-300" href="{{ path ('category_item', {name: category.name}) }}">{{ category.name }}</a> : {{category.recipe|length}} Recipes</li>
         
 {% else %}
     <p> Aucune categorie trouvée</p>

@@ -7,8 +7,11 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Attribute\Groups;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: CategoryRepository::class)]
+#[Vich\Uploadable]
 class Category
 {
     #[ORM\Id]
@@ -25,6 +28,13 @@ class Category
      */
     #[ORM\OneToMany(targetEntity: Recipe::class, mappedBy: 'category')]
     private Collection $recipe;
+
+    #[Vich\UploadableField(mapping: 'category', fileNameProperty: 'flagfilename')]
+    private ?File $flagFile = null;
+
+    #[ORM\Column(length: 255)]
+
+    private ?string $flagfilename = null;
 
     public function __construct()
     {
@@ -78,6 +88,30 @@ class Category
                 $recipe->setCategory(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getFlagfilename(): ?string
+    {
+        return $this->flagfilename;
+    }
+
+    public function setFlagfilename(string $flagfilename): static
+    {
+        $this->flagfilename = $flagfilename;
+
+        return $this;
+    }
+
+    /**
+     * Set the value of id
+     *
+     * @return  self
+     */ 
+    public function setId($id)
+    {
+        $this->id = $id;
 
         return $this;
     }

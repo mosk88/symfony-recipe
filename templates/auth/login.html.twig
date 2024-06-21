@@ -28,6 +28,15 @@
         <button type="submit" class=" py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
             Sign in
         </button>
+        <label class="p-3">
+        <input type="checkbox" name="_remmeber_me" checked>
+        Kepp me logged in
+        </label>
+          <button type="submit" class=" py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
+            <a href="{{ path ('app_register') }}">Registration</a>
+        </button>
+
+
          {# Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
             See https://symfony.com/doc/current/security/remember_me.html
 

@@ -16,6 +16,7 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 class RecipeController extends AbstractController
 {
     #[Route('/recipe', name: 'app_recipe')]
+    
     public function recipe(Request $request, EntityManagerInterface $em, SluggerInterface $slugger): Response
     {
         $recipe = new Recipe();
