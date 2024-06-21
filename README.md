@@ -6,13 +6,6 @@ bash
 
 symfony new pe9_sf_news --version=6.4 --webapp
 
-Commandes Utiles
-
-    Liste des commandes disponibles :
-
-    bash
-
-php bin/console list
 
 Créer un contrôleur :
 
@@ -20,17 +13,7 @@ bash
 
 php bin/console make:controller
 
-Démarrer le serveur :
 
-bash
-
-symfony serve --no-tls
-
-Arrêter le serveur :
-
-bash
-
-symfony server:stop
 
 Voir toutes les routes :
 
@@ -72,11 +55,6 @@ Base de Données
 
 php bin/console doctrine:database:create
 
-Supprimer la base de données :
-
-bash
-
-php bin/console doctrine:database:drop --force
 
 Créer une entité :
 
@@ -96,12 +74,6 @@ bash
 
 php bin/console doctrine:migrations:migrate
 
-Mettre à jour le schéma :
-
-bash
-
-    php bin/console doctrine:schema:update --dump-sql
-    php bin/console doctrine:schema:update --force
 
 Fixtures et Fake Data
 
@@ -123,54 +95,7 @@ bash
 
     composer require --dev fakerphp/faker
 
-Relations et Entités
 
-    Ajouter une relation :
-
-    bash
-
-php bin/console make:entity Category
-
-Voir le conteneur de services pour une classe spécifique :
-
-bash
-
-php bin/console debug:container Category
-
-Revenir en arrière sur une migration :
-
-bash
-
-    php bin/console doctrine:migrations:execute --down
-
-Thèmes et Configuration Twig
-
-    Installer le thème Flowbite :
-
-    bash
-
-composer require tales-from-a-dev/flowbite-bundle
-
-Configurer Twig (dans config/packages/twig.yaml) :
-
-yaml
-
-    form_themes:
-      - "@TalesFromADevFlowbite/form/default.html.twig"
-
-Autowiring
-
-    Déboguer le conteneur de services pour l'EntityManager :
-
-    bash
-
-php bin/console debug:container EntityManager
-
-Déboguer l'autowiring :
-
-bash
-
-    php bin/console debug:autowiring entity
 
 Docker et Mailtrap
 
@@ -305,3 +230,14 @@ Validation
     bash
 
 php bin/console make:validator SpamValidator
+
+
+
+Upload de fichiers
+-à la main sur entity Recipe.
+-avec vichuploadbundle sur entity category
+
+Les event listener  et event subscribers les personnaliser.
+
+API Spam Checker commnique avec une autre API .
+
