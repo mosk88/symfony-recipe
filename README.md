@@ -237,7 +237,5 @@ Upload de fichiers
 -à la main sur entity Recipe.
 -avec vichuploadbundle sur entity category
 
-Les event listener  et event subscribers les personnaliser.
-
 API Spam Checker commnique avec une autre API .
 
