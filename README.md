@@ -50,7 +50,7 @@ Ajouter un firewall pour l'API
 
 10-Evénements:
 
- listener 
+ listener /
  Subscriber 
 
 11-Validation:
