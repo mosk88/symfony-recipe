@@ -3,7 +3,7 @@
 {% block title %}list recette{% endblock %}
 
 {% block body %}
- <h1 class="text-8xl text-center p-5 text-blue-300 ">list Category</h1>
+ <h1 class="text-4xl text-center p-5 text-blue-300 ">List Category</h1>
 <ul class="text-center  p-10 flex ">
 {% for category in categories  %}
 
@@ -18,7 +18,7 @@
                                   />
                            </p>
                  {% endif %}
-            <a class="text-3xl p-5 hover:text-blue-300 transition-colors duration-300" href="{{ path ('category_item', {name: category.name}) }}">{{ category.name }}</a> : {{category.recipe|length}} Recipes</li>
+            <a class="text-2xl p-5 hover:text-blue-300 transition-colors duration-300" href="{{ path ('category_item', {name: category.name}) }}">{{ category.name }}</a> : {{category.recipe|length}} Recipes</li>
         
 {% else %}
     <p> Aucune categorie trouvée</p>

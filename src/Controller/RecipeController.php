@@ -15,7 +15,7 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 
 class RecipeController extends AbstractController
 {
-    #[Route('/recipe', name: 'app_recipe')]
+    #[Route('/add', name: 'app_recipe')]
     
     public function recipe(Request $request, EntityManagerInterface $em, SluggerInterface $slugger): Response
     {
@@ -55,7 +55,7 @@ class RecipeController extends AbstractController
             }
            
         }
-        return $this->render('recipe/new.html.twig', [
+        return $this->render('recipe/add.html.twig', [
             'newrecipeform' => $form,
         ]);
     }
